@@ -19,13 +19,30 @@ You have full access to the internet and you are encouraged to use it.
 
 ## Objectives
 
-Objective 1: Read and display the board info from the EEPROM of both boards.
+### Objective 1
 
-Objective 2: Implement a simple application that reads the temperature from the Back Thermistor of the rear sensor board.
+Read and display the board info from the EEPROM of both boards. 
 
-Objective 3: Implement a simple application that reacts to button presses on the HMI board. You can ignore the interrupt and simply poll the 2 GPIOs.
+The EEPROM model number, i2c address as well as the eeprom data layout are provided in the resources section.
 
-Note: using the screen of the HMI is not trivial and out of scope for this test.
+### Objective 2
+
+Implement a simple application that reacts to button presses on the HMI board.
+
+You can ignore the interrupt and simply poll the 2 GPIOs. 
+
+You will have to configure the FT260 to enable GPIO 4 and 5 by turning off the uart_dcd_ri functionality with `echo 0 > /sys/bus/hid/drivers/ft260/<ft260-hmi>/uart_dcd_ri`.
+
+Note: using the led driver of the HMI is not trivial and out of scope for this test.
+
+### Objective 3
+
+Implement a simple application that reads the temperature from the Back Thermistor of the rear sensor board.
+
+The i2c address and model number of the thermistance ADC are provided in the resources section. To read and convert the ADC tension into a temperature, please refer to the RearSensorBoard.pdf document in the doc folder.
+
+You can use the default values for the thermistor parameters (provided in the document), you don't have to go read the calibration values in the EEPROM.
+
 
 ## Resources
 
