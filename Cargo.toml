@@ -1,0 +1,9 @@
+[package]
+name = "interview"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+linux-embedded-hal = "0.4.0"
+embedded-hal = "1.0.0"
+clap = {version = "4.5", features = ["derive"]}
